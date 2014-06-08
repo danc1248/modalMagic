@@ -1,6 +1,6 @@
-angular.module "ti.modalMagic", []
+angular.module "dc.modalMagic", []
 
-angular.module "ti.modalMagic"
+angular.module "dc.modalMagic"
 .factory "modalMagic", ["$injector", "$q", ($injector, $q)->
 
   class InterruptingCow
