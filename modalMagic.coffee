@@ -1,4 +1,4 @@
-angular.module "dc.modalMagic", []
+angular.module "dc.modalMagic", ["ui.bootstrap"]
 
 angular.module "dc.modalMagic"
 .factory "modalMagic", ["$injector", "$q", ($injector, $q)->
@@ -82,7 +82,7 @@ angular.module "dc.modalMagic"
 
       modal = @$modal.open
         templateUrl: @templateUrl
-        controller: ($scope, $modalInstance)->
+        controller: ["$scope", "$modalInstance", ($scope, $modalInstance)->
           console.log "data", self.data
           $scope.data = self.data
           $scope.submit = ->
@@ -104,7 +104,7 @@ angular.module "dc.modalMagic"
             console.log "closed from cow"
             $modalInstance.dismiss "closed"
 
-        # end controller
+        ] # end controller
       return modal.result
 
   # end InterruptingCow
