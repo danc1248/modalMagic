@@ -55,6 +55,9 @@ angular.module "dc.modalMagic"
       # after submitting, validate the results
       # using the isValid function
       @modalPromise = @openModal()
+      .catch =>
+        # modal gone, possible that what we had originally is good?
+        return @data
       .then (results)=>
         return @asPromise @isValid, results
 
